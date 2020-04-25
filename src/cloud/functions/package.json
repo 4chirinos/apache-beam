@@ -1,0 +1,8 @@
+{
+  "name": "cloud-functions",
+  "version": "1.0.0",
+  "description": "Google cloud functions",
+  "dependencies": {
+    "@google-cloud/pubsub": "^1.7.2"
+  }
+}

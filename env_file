@@ -1,0 +1,11 @@
+project=trusty-banner-271900
+bucket=gcpapachebeam
+dbHost=35.188.172.33
+dbPort=3306
+dbName=beam
+dbUsername=root
+dbPassword=password
+region=us-central1
+runner=DataflowRunner
+subscriber=subscriber-test-topic-1
+fixedWindowDuration=20

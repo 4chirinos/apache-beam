@@ -1,0 +1,70 @@
+plugins {
+	id 'org.springframework.boot' version '2.2.6.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+	id 'java'
+}
+
+group = 'com.dataflow'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+ext {
+	set('springCloudVersion', 'Hoxton.SR3')
+	set('beamVersion', '2.19.0')
+	set('googleClientsVersion', '1.28.0')
+	set('bigQueryVersion', 'v2-rev20181221-1.28.0')
+	set('pubSubVersion', 'v1-rev20191111-1.28.0')
+	set('jodaVersion', '2.10.3')
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-integration',
+			'org.springframework.boot:spring-boot-starter-web',
+			'org.springframework.cloud:spring-cloud-gcp-starter-pubsub',
+			'org.springframework.cloud:spring-cloud-starter-sleuth',
+			'org.springframework.boot:spring-boot-starter-data-jdbc',
+			'com.google.cloud:google-cloud-storage:1.107.0',
+			"org.apache.beam:beam-sdks-java-io-jdbc:${beamVersion}",
+			"org.apache.beam:beam-sdks-java-core:${beamVersion}",
+			"org.apache.beam:beam-sdks-java-io-google-cloud-platform:${beamVersion}",
+			"com.google.api-client:google-api-client:${googleClientsVersion}",
+			"com.google.apis:google-api-services-bigquery:${bigQueryVersion}",
+			"com.google.http-client:google-http-client:${googleClientsVersion}",
+			"com.google.apis:google-api-services-pubsub:${pubSubVersion}",
+			"joda-time:joda-time:${jodaVersion}",
+			"org.apache.beam:beam-runners-direct-java:${beamVersion}",
+			"org.apache.beam:beam-runners-google-cloud-dataflow-java:${beamVersion}"
+	compile 'com.zaxxer:HikariCP:3.4.2'
+	compile 'c3p0:c3p0:0.9.1.2'
+	compileOnly 'org.projectlombok:lombok'
+	runtime 'mysql:mysql-connector-java:8.0.19'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+	testImplementation 'org.springframework.integration:spring-integration-test'
+}
+
+configurations.all {
+	exclude group: 'com.google.guava', module: 'guava-jdk5'
+}
+
+dependencyManagement {
+	imports {
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+	}
+}
+
+test {
+	useJUnitPlatform()
+}
