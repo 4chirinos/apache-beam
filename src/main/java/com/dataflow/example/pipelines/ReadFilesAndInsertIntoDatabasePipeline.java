@@ -1,8 +1,8 @@
 package com.dataflow.example.pipelines;
 
 import com.dataflow.example.dtos.Record;
-import com.dataflow.example.pipelines.functions.filters.FilterHeader;
-import com.dataflow.example.pipelines.functions.transformers.LineToRecord;
+import com.dataflow.example.pipelines.functions.SerializableFunction.FilterHeader;
+import com.dataflow.example.pipelines.functions.SimpleFunction.LineToRecord;
 import com.dataflow.example.pipelines.options.ReadFilesAndInsertIntoDatabaseOptions;
 import com.dataflow.example.utils.PipelineUtils;
 import org.apache.beam.sdk.Pipeline;

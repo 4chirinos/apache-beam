@@ -5,24 +5,21 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.apache.beam.sdk.options.PipelineOptions;
+
+import java.io.Serializable;
 
 @Getter
 @Setter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class StreamingFilesAndInsertIntoDatabaseOptions {
-    private PipelineOptions pipelineOptions;
-    private String monitoringPath;
-    private int fixedMonitoringWindow;
-    private int maxPipelineIdleHours;
+public class PerformIOOptions implements Serializable {
+    private String dbDriver;
     private String dbHost;
     private String dbPort;
     private String dbName;
     private String dbUsername;
     private String dbPassword;
-    private String dbDriver;
     private int dbConnectionMaximumPoolSize;
     private int dbConnectionMinimumIdle;
     private long dbConnectionIdleTimeout;

@@ -1,4 +1,4 @@
-package com.dataflow.example.pipelines.functions.filters;
+package com.dataflow.example.pipelines.functions.SerializableFunction;
 
 import org.apache.beam.sdk.transforms.SerializableFunction;
 

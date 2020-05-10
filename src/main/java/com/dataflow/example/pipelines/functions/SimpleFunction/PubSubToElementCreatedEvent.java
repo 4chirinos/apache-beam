@@ -1,4 +1,4 @@
-package com.dataflow.example.pipelines.functions.transformers;
+package com.dataflow.example.pipelines.functions.SimpleFunction;
 
 import com.dataflow.example.dtos.ElementCreatedEvent;
 import com.fasterxml.jackson.databind.DeserializationFeature;

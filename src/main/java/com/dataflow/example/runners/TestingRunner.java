@@ -1,7 +1,7 @@
 package com.dataflow.example.runners;
 
 import com.dataflow.example.pipelines.PipelineConfigurator;
-import com.dataflow.example.pipelines.StreamingFilesAndInsertIntoDatabasePipeline;
+import com.dataflow.example.pipelines.TestingPipeline;
 import com.dataflow.example.pipelines.options.StreamingFilesAndInsertIntoDatabaseOptions;
 import com.dataflow.example.utils.Constants;
 import lombok.extern.slf4j.Slf4j;
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 
 @Slf4j
 @Component
-public class ProductStreamingRunner {
+public class TestingRunner {
 
     @Value("${example.bucket}")
     private String bucket;
@@ -72,11 +72,10 @@ public class ProductStreamingRunner {
     public void run() {
         StreamingFilesAndInsertIntoDatabaseOptions streamingFilesAndInsertIntoDatabaseOptions =
                 getStreamingFilesAndInsertIntoDatabaseOptions();
-        Pipeline pipeline = StreamingFilesAndInsertIntoDatabasePipeline
-                .create(streamingFilesAndInsertIntoDatabaseOptions);
+        Pipeline pipeline = TestingPipeline.create(streamingFilesAndInsertIntoDatabaseOptions);
         log.info("Starting runStreamingFilesAndInsertIntoDatabasePipeline");
         pipeline.run();
-        log.info("StreamingFilesAndInsertIntoDatabasePipeline was triggered");
+        log.info("runStreamingFilesAndInsertIntoDatabasePipeline was triggered");
     }
 
     private StreamingFilesAndInsertIntoDatabaseOptions getStreamingFilesAndInsertIntoDatabaseOptions() {

@@ -15,7 +15,7 @@ public class ProductStreamingScheduler {
     @Autowired
     private ProductStreamingRunner productStreamingRunner;
 
-    @Scheduled(fixedRate = 60000000)
+    //@Scheduled(fixedRate = 60000000)
     public void scheduled() {
         log.info(String.format("Triggering product streaming pipeline at %s", new Date().toString()));
         productStreamingRunner.run();

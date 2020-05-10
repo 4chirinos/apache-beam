@@ -1,8 +1,8 @@
 package com.dataflow.example.pipelines;
 
 import com.dataflow.example.dtos.Record;
-import com.dataflow.example.pipelines.functions.mappers.RecordRowMapper;
-import com.dataflow.example.pipelines.functions.transformers.RecordToString;
+import com.dataflow.example.pipelines.functions.RowMapper.RecordRowMapper;
+import com.dataflow.example.pipelines.functions.SimpleFunction.RecordToString;
 import com.dataflow.example.pipelines.options.ReadDatabaseAndSaveRecordsIntoFilesOptions;
 import org.apache.beam.sdk.Pipeline;
 import org.apache.beam.sdk.coders.AvroCoder;

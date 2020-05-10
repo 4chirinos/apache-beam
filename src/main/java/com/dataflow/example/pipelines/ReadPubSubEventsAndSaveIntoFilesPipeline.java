@@ -1,7 +1,7 @@
 package com.dataflow.example.pipelines;
 
 import com.dataflow.example.dtos.Record;
-import com.dataflow.example.pipelines.functions.transformers.PubSubToRecord;
+import com.dataflow.example.pipelines.functions.SimpleFunction.PubSubToRecord;
 import com.dataflow.example.pipelines.options.ReadPubSubEventsAndSaveIntoFilesOptions;
 import com.dataflow.example.utils.PipelineUtils;
 import org.apache.beam.sdk.Pipeline;

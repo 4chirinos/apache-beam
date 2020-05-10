@@ -1,4 +1,4 @@
-package com.dataflow.example.pipelines.functions.mappers;
+package com.dataflow.example.pipelines.functions.RowMapper;
 
 import com.dataflow.example.dtos.Record;
 import org.apache.beam.sdk.io.jdbc.JdbcIO;
